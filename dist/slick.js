@@ -125,14 +125,14 @@ angular.module('slick', []).directive('slick', [
               }
             });
             slider.on('afterChange', function (event, slick, currentSlide, nextSlide) {
-              if (scope.onAfterChange) {
-                scope.onAfterChange();
-              }
               if (currentIndex != null) {
                 return scope.$apply(function () {
                   currentIndex = currentSlide;
                   return scope.currentIndex = currentSlide;
                 });
+              }
+              if (scope.onAfterChange) {
+                scope.onAfterChange();
               }
             });
             return scope.$watch('currentIndex', function (newVal, oldVal) {
