@@ -94,7 +94,7 @@ angular.module('slick', []).directive('slick', [
               fade: scope.fade === 'true',
               focusOnSelect: scope.focusOnSelect === 'true',
               infinite: scope.infinite !== 'false',
-              initialSlide: scope.initialSlide || 0,
+              initialSlide: scope.initialSlide != null ? parseInt(scope.initialSlide, 10) : 0,
               lazyLoad: scope.lazyLoad || 'ondemand',
               beforeChange: attrs.onBeforeChange ? scope.onBeforeChange : void 0,
               onReInit: attrs.onReInit ? scope.onReInit : void 0,
